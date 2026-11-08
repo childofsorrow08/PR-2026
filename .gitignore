@@ -1,1 +1,26 @@
 build
+obj
+bin
+.cache
+
+# різні файлікі
+*.user
+*.suo
+*.db
+*.db-shm
+*.db-wal
+
+shell.nix
+*.Build.props
+.editorconfig
+windows.txt
+
+*.sh
+tools
+
+# Emacs / VScode
+*#
+~*
+*.code-workspace
+
+
