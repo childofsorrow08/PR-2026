@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Калькулятор з історією</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <h1>Калькулятор з історією</h1>
+        <div class="equation">
+            <input type="text" inputmode="decimal" id="value1" aria-label="Перше число">
+            +
+            <input type="text" inputmode="decimal" id="value2" aria-label="Друге число">
+            =
+            <span id="result" role="status">—</span>
+        </div>
+        <button id="calculate" onclick="calculate()">Порахувати</button>
+        <h2>Історія</h2>
+        <ul id="history"></ul>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #edf4f2;
+    color: #173a45;
+    font: 16px/1.6 system-ui, sans-serif;
+}
+
+main {
+    max-width: 960px;
+    margin: 48px auto;
+    padding: 28px;
+    background: white;
+    border-radius: 12px;
+}
+
+input, button {
+    padding: 10px 14px;
+    font: inherit;
+    border: 1px solid #759b9b;
+    border-radius: 6px;
+}
+
+label {
+    display: block;
+}
+
+input {
+    max-width: 100%;
+}
+
+button {
+    margin: 12px 0;
+    background: #17666b;
+    color: white;
+    cursor: pointer;
+}
+
+pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+#grades {
+    width: 100%;
+}
+
+.equation {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.equation input {
+    width: 150px;
+}
+
+#history {
+    border: 1px solid #759b9b;
+    padding: 16px 36px;
+    min-height: 70px;
+}
+
+@media (max-width: 600px) {
+    main {
+        margin: 16px;
+        padding: 18px;
+    }
+}

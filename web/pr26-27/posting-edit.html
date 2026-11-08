@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Нове відправлення · PostService</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <strong>PostService</strong>
+        <nav aria-label="Головна навігація">
+            <a href="index.html">Головна</a>
+            <a href="posting-list.html">Відправлення</a>
+            <a href="about.html">Про програму</a>
+        </nav>
+    </header>
+    <main>
+        <h1 id="page-title">Нове відправлення</h1>
+        <p id="status" role="status"></p>
+        <form id="posting-form" novalidate>
+            <div class="field">
+                <label for="from">Відправник</label>
+                <input id="from" name="from" type="text" required minlength="2" aria-describedby="from-error">
+                <p class="field-error" id="from-error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+                <label for="to">Одержувач</label>
+                <input id="to" name="to" type="text" required minlength="2" aria-describedby="to-error">
+                <p class="field-error" id="to-error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+                <label for="content">Вміст відправлення</label>
+                <textarea id="content" name="content" rows="3" required aria-describedby="content-error"></textarea>
+                <p class="field-error" id="content-error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+                <label for="deliveryType">Тип доставки</label>
+                <select id="deliveryType" name="deliveryType" required aria-describedby="deliveryType-error">
+                    <option value="">Оберіть спосіб доставки</option>
+                    <option value="0">Відділення</option>
+                    <option value="1">Кур’єр</option>
+                    <option value="2">Експрес-кур’єр</option>
+                </select>
+                <p class="field-error" id="deliveryType-error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+                <label for="weight">Вага, кг</label>
+                <input id="weight" name="weight" type="number" required min="0.1" step="0.1" aria-describedby="weight-error">
+                <p class="field-error" id="weight-error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+                <label for="width">Ширина, см</label>
+                <input id="width" name="width" type="number" required min="0" step="1" aria-describedby="width-error">
+                <p class="field-error" id="width-error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+                <label for="height">Висота, см</label>
+                <input id="height" name="height" type="number" required min="0" step="1" aria-describedby="height-error">
+                <p class="field-error" id="height-error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+                <label for="depth">Довжина, см</label>
+                <input id="depth" name="depth" type="number" required min="0" step="1" aria-describedby="depth-error">
+                <p class="field-error" id="depth-error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+                <label for="value">Оголошена вартість, грн</label>
+                <input id="value" name="value" type="number" min="0" step="any" aria-describedby="value-error">
+                <p class="field-error" id="value-error" aria-live="polite"></p>
+            </div>
+            <p id="price">Вартість пересилання обчислюється після збереження.</p>
+            <div class="toolbar">
+                <button id="save" type="button">Зберегти</button>
+                <button id="cancel" class="secondary" type="button">Скасувати</button>
+            </div>
+        </form>
+    </main>
+    <script src="scripts/api.js"></script>
+    <script src="scripts/edit.js"></script>
+</body>
+</html>
