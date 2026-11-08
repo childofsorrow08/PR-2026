@@ -1,0 +1,45 @@
+@baseUrl = http://localhost:5040
+
+### Створення: 201, Price = 30, без Price у вхідному DTO
+# @name posting
+POST {{baseUrl}}/postings
+Content-Type: application/json
+
+{
+    "from": "Київ", "to": "Львів", "content": "Книги",
+    "deliveryType": 0, "weight": 2, "width": 20, "height": 10,
+    "depth": 30, "value": null
+}
+
+### Перелік: 200
+GET {{baseUrl}}/postings
+
+### Пошук: 200
+GET {{baseUrl}}/postings/{{posting.response.body.$.id}}
+
+### Оновлення: 200, Price = 165
+PUT {{baseUrl}}/postings/{{posting.response.body.$.id}}
+Content-Type: application/json
+
+{
+    "id": {{posting.response.body.$.id}},
+    "from": "Київ", "to": "Одеса", "content": "Оновлені книги",
+    "deliveryType": 2, "weight": 3, "width": 20, "height": 10,
+    "depth": 30, "value": 500
+}
+
+### Некоректні дані: 400 з errors
+POST {{baseUrl}}/postings
+Content-Type: application/json
+
+{
+    "from": "A", "to": "Львів", "content": "Книги",
+    "deliveryType": 0, "weight": 21, "width": -1, "height": 10,
+    "depth": 30, "value": null
+}
+
+### Видалення: 204
+DELETE {{baseUrl}}/postings/{{posting.response.body.$.id}}
+
+### Після видалення: 404
+GET {{baseUrl}}/postings/{{posting.response.body.$.id}}

@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "PostService",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/PostService/bin/Debug/net8.0/PostService.dll",
+            "args": [
+                "--urls",
+                "http://localhost:5000"
+            ],
+            "cwd": "${workspaceFolder}/PostService",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        }
+    ]
+}

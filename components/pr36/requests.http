@@ -1,0 +1,4 @@
+@baseUrl = http://localhost:5000
+
+### Очікується 200 і текст «Це API поштового клієнта.»
+GET {{baseUrl}}/

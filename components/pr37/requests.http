@@ -1,0 +1,45 @@
+@baseUrl = http://localhost:5000
+
+### Запустіть components/pr37: dotnet run --project components/pr37 --urls http://localhost:5000
+### Усі відправлення: 200
+GET {{baseUrl}}/postings
+
+### Створення: 201, Location та об'єкт з id
+# @name createPosting
+POST {{baseUrl}}/postings
+Content-Type: application/json
+
+{
+    "from": "Київ", "to": "Львів", "content": "Підручники",
+    "deliveryType": 0, "weight": 2, "width": 20, "height": 10,
+    "depth": 30, "value": 500, "price": 100
+}
+
+### Наявний запис: 200. Спочатку виконайте createPosting.
+GET {{baseUrl}}/postings/{{createPosting.response.body.$.id}}
+
+### Неіснуючий запис: 404
+GET {{baseUrl}}/postings/2147483647
+
+### Створений запис присутній у списку: 200
+GET {{baseUrl}}/postings
+
+### Оновлення: 200
+PUT {{baseUrl}}/postings/{{createPosting.response.body.$.id}}
+Content-Type: application/json
+
+{
+    "id": {{createPosting.response.body.$.id}},
+    "from": "Київ", "to": "Одеса", "content": "Оновлені підручники",
+    "deliveryType": 1, "weight": 3, "width": 20, "height": 10,
+    "depth": 30, "value": 600, "price": 120
+}
+
+### Перевірка зміни: 200
+GET {{baseUrl}}/postings/{{createPosting.response.body.$.id}}
+
+### Видалення: 204 без тіла
+DELETE {{baseUrl}}/postings/{{createPosting.response.body.$.id}}
+
+### Перевірка видалення: 404
+GET {{baseUrl}}/postings/{{createPosting.response.body.$.id}}

@@ -1,0 +1,152 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f4f7f8;
+    color: #17333c;
+    font: 16px/1.5 system-ui, sans-serif;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 18px 5vw;
+    background: #155a61;
+    color: white;
+}
+
+nav, .toolbar, .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+nav a {
+    color: white;
+}
+
+main {
+    max-width: 1400px;
+    margin: auto;
+    padding: 24px 5vw;
+}
+
+button, .button {
+    display: inline-block;
+    padding: 9px 14px;
+    border: 1px solid #43838a;
+    border-radius: 3px;
+    background: #155a61;
+    color: white;
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.secondary {
+    background: #e0eeef;
+    color: #17333c;
+}
+
+button:disabled {
+    opacity: .5;
+    cursor: wait;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #b7c9cb;
+}
+
+th {
+    background: #e0eeef;
+}
+
+.selected {
+    background: #d3e9f7;
+    outline: 2px solid #296f9a;
+}
+
+#posting-form {
+    max-width: 1000px;
+}
+
+.field {
+    display: grid;
+    grid-template-columns: 180px minmax(120px, 1fr) minmax(180px, 1fr);
+    gap: 10px;
+    align-items: start;
+    margin: 18px 0;
+}
+
+input, select, textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 9px;
+    border: 1px solid #b7c9cb;
+    background: white;
+    font: inherit;
+}
+
+.invalid {
+    border: 2px solid #b32332;
+    background: #fff0f0;
+}
+
+.field-error {
+    margin: 0;
+    color: #a31828;
+}
+
+dt {
+    font-weight: bold;
+    margin-top: 12px;
+}
+
+dd {
+    margin-left: 0;
+}
+
+@media (max-width: 700px) {
+    .field {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+
+    thead {
+        display: none;
+    }
+
+    table, tbody, tr, td {
+        display: block;
+    }
+
+    tr {
+        margin-bottom: 18px;
+        border: 1px solid #b7c9cb;
+    }
+
+    td::before {
+        content: attr(data-label) ": ";
+        font-weight: bold;
+    }
+
+    .actions::before {
+        content: "";
+    }
+}
